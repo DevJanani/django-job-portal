@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="/">Job Portal</a>
+
+        <div class="navbar-nav">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/create/">Create Job</a>
+            <a class="nav-link" href="/dashboard/">Dashboard</a>
+            <a class="nav-link" href="/candidate/">Applications</a>
+        </div>
+
+        <div class="navbar-nav ms-auto">
+
+            {% if user.is_authenticated %}
+
+                <span class="navbar-text me-3">
+                    Welcome, {{ user.username }}
+                </span>
+
+                <a class="nav-link" href="{% url 'logout' %}">
+                    Logout
+                </a>
+
+            {% else %}
+
+                <a class="nav-link" href="{% url 'login' %}">
+                    Login
+                </a>
+
+                <a class="nav-link" href="{% url 'register' %}">
+                    Register
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+</nav>
